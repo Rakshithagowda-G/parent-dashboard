@@ -1,0 +1,143 @@
+/* Scoped: only affects academic card calendar */
+.academic-performance-attendance { 
+  width: 100%; 
+  max-width: 420px; 
+  padding: 12px; 
+  box-sizing: border-box; 
+  background: transparent; 
+}
+
+/* header */
+.academic-performance-attendance .apa-header { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  margin-bottom: 10px; 
+  gap: 8px; 
+}
+
+.academic-performance-attendance .apa-title { 
+  font-weight: 700; 
+  color: var(--text-strong, #0f1724); 
+  font-size: 15px; 
+}
+
+.academic-performance-attendance .apa-nav { 
+  border: none; 
+  background: transparent; 
+  color: var(--muted, #6b7280); 
+  cursor: pointer; 
+  padding: 6px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.academic-performance-attendance .apa-nav:hover:not(.disabled) {
+  opacity: 0.7;
+}
+
+/* grid smaller & compact */
+.academic-performance-attendance .apa-weekhead { 
+  display: grid; 
+  grid-template-columns: repeat(7, 1fr); 
+  margin-bottom: 6px; 
+  font-size: 11px; 
+  color: var(--muted, #7b8a97); 
+  text-align: center;
+  font-weight: 600;
+}
+
+.academic-performance-attendance .apa-days { 
+  display: grid; 
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 8px; 
+}
+
+/* smaller day boxes */
+.academic-performance-attendance .apa-day { 
+  min-height: 44px; 
+  padding-top: 6px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; 
+  border-radius: 8px; 
+  background: transparent; 
+}
+
+.academic-performance-attendance .apa-dot { 
+  width: 30px; 
+  height: 30px; 
+  border-radius: 6px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: 700; 
+  margin-bottom: 6px; 
+}
+
+/* color tokens: use --accent if available */
+.academic-performance-attendance .apa-present .apa-dot { 
+  background: var(--accent, #3b82f6); 
+  color: #fff; 
+}
+
+.academic-performance-attendance .apa-absent .apa-dot { 
+  background: #ff4d4f; 
+  color: #fff; 
+}
+
+.academic-performance-attendance .apa-nodata .apa-dot { 
+  background: #f1f5f9; 
+  color: #95a3b3; 
+}
+
+/* small day number */
+.academic-performance-attendance .apa-daynum { 
+  font-size: 12px; 
+  color: var(--muted, #6b7280); 
+}
+
+.academic-performance-attendance .apa-present .apa-daynum,
+.academic-performance-attendance .apa-absent .apa-daynum {
+  color: #fff;
+}
+
+/* hide/disable next button when at present month */
+.academic-performance-attendance .apa-nav.disabled { 
+  opacity: 0.35; 
+  pointer-events: none; 
+  cursor: not-allowed;
+}
+
+/* keep layout tidy on small screens */
+@media (max-width: 480px) {
+  .academic-performance-attendance { 
+    max-width: 100%; 
+    padding: 8px; 
+  }
+  
+  .academic-performance-attendance .apa-dot { 
+    width: 26px; 
+    height: 26px; 
+  }
+  
+  .academic-performance-attendance .apa-day { 
+    min-height: 40px; 
+  }
+}
+
+/* Dark mode support */
+.academic-performance-attendance[data-dark-mode="true"] .apa-title {
+  color: var(--text-strong, #ffffff);
+}
+
+.academic-performance-attendance[data-dark-mode="true"] .apa-nodata .apa-dot {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.academic-performance-attendance[data-dark-mode="true"] .apa-daynum {
+  color: var(--muted, rgba(255, 255, 255, 0.6));
+}

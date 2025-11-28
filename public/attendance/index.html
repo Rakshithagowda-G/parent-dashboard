@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Student Attendance Dashboard</title>
+  <script type="module" crossorigin src="/attendance/assets/index-uqp72mPd.js"></script>
+  <link rel="stylesheet" crossorigin href="/attendance/assets/index-CE9nk6Ko.css">
+  <style>
+    /* Light mode - white background */
+    :root {
+      --bg: #ffffff !important;
+    }
+
+    body {
+      background-color: #ffffff !important;
+    }
+
+    /* Also override bg-bg class in light mode */
+    body:not(.dark-mode) .bg-bg,
+    html:not(.dark-mode) body .bg-bg {
+      background-color: #ffffff !important;
+    }
+
+    /* Dark mode styles for attendance page - ONLY apply in dark mode */
+    body.dark-mode,
+    html.dark-mode body {
+      --bg: #0f123b !important;
+      background-color: #0f123b !important;
+    }
+
+    body.dark-mode .bg-bg,
+    html.dark-mode body .bg-bg {
+      background-color: #0f123b !important;
+    }
+
+    /* Only override card backgrounds in dark mode */
+    body.dark-mode .bg-card,
+    html.dark-mode body .bg-card {
+      background-color: #0f123b !important;
+      border: 1px solid rgba(86, 87, 122, 0.3) !important;
+    }
+
+    /* Summary cards - make all blue in dark mode only */
+    body.dark-mode .bg-p-blue,
+    html.dark-mode body .bg-p-blue,
+    body.dark-mode .bg-p-pink,
+    html.dark-mode body .bg-p-pink,
+    body.dark-mode .bg-p-orange,
+    html.dark-mode body .bg-p-orange {
+      background-color: rgba(22, 120, 255, 0.15) !important;
+    }
+
+    /* Text colors in dark mode */
+    body.dark-mode .text-text-primary,
+    html.dark-mode body .text-text-primary,
+    body.dark-mode .text-\[\#0F172A\],
+    html.dark-mode body .text-\[\#0F172A\] {
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .text-text-muted,
+    html.dark-mode body .text-text-muted,
+    body.dark-mode .text-\[\#343a40\],
+    html.dark-mode body .text-\[\#343a40\] {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    body.dark-mode .border-muted,
+    html.dark-mode body .border-muted {
+      border-color: rgba(86, 87, 122, 0.3) !important;
+    }
+
+    body.dark-mode .bg-muted,
+    html.dark-mode body .bg-muted {
+      background-color: rgba(86, 87, 122, 0.3) !important;
+    }
+
+    /* Update text colors in summary cards for dark mode */
+    body.dark-mode .bg-p-pink .text-text-primary,
+    html.dark-mode body .bg-p-pink .text-text-primary,
+    body.dark-mode .bg-p-orange .text-text-primary,
+    html.dark-mode body .bg-p-orange .text-text-primary {
+      color: #ffffff !important;
+    }
+
+    /* Explicitly ensure light mode preserves original colors */
+    body:not(.dark-mode) .bg-p-pink,
+    html:not(.dark-mode) body .bg-p-pink {
+      background-color: #FFEFF0 !important;
+      /* Original pink */
+    }
+
+    body:not(.dark-mode) .bg-p-orange,
+    html:not(.dark-mode) body .bg-p-orange {
+      background-color: #FFF4E6 !important;
+      /* Original orange */
+    }
+
+    body:not(.dark-mode) .bg-p-blue,
+    html:not(.dark-mode) body .bg-p-blue {
+      background-color: #D9EEFF !important;
+      /* Original blue */
+    }
+
+    /* ===== Attendance: Dark-mode readability fixes (Injected) ===== */
+    /* Scope both common dark roots */
+    body.dark,
+    body.dark-mode,
+    html.dark-mode body {
+      --att-text-bright: #F5F8FF;
+      /* headings / primary */
+      --att-text-normal: #E0E9F6;
+      /* regular cell text */
+      --att-text-muted: #A7B6C8;
+      /* secondary/meta */
+      --att-row-bg: rgba(255, 255, 255, 0.02);
+      --att-row-highlight: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Stronger text color for attendance card header */
+    body.dark-mode .attendance-card .section-title,
+    html.dark-mode body .attendance-card .section-title {
+      color: var(--att-text-bright) !important;
+      opacity: 0.98 !important;
+    }
+
+    /* Apply readable text for all table text inside attendance */
+    body.dark-mode .attendance-card,
+    html.dark-mode body .attendance-card,
+    body.dark-mode .attendance-table,
+    html.dark-mode body .attendance-table {
+      color: var(--att-text-normal) !important;
+    }
+
+    /* Table headings brighter */
+    body.dark-mode .attendance-table thead th,
+    html.dark-mode body .attendance-table thead th,
+    body.dark-mode table thead th,
+    html.dark-mode body table thead th {
+      color: var(--att-text-bright) !important;
+      font-weight: 700 !important;
+      opacity: 0.98 !important;
+    }
+
+    /* Table body cells */
+    body.dark-mode .attendance-table tbody td,
+    html.dark-mode body .attendance-table tbody td,
+    body.dark-mode table tbody td,
+    html.dark-mode body table tbody td {
+      color: var(--att-text-normal) !important;
+      padding: 14px 18px !important;
+      border-color: rgba(255, 255, 255, 0.03) !important;
+    }
+
+    /* Muted/meta text (dates, small labels) */
+    body.dark-mode .attendance-table .muted,
+    html.dark-mode body .attendance-table .muted {
+      color: var(--att-text-muted) !important;
+    }
+
+    /* Row background & highlighted row */
+    body.dark-mode .attendance-table tbody tr,
+    html.dark-mode body .attendance-table tbody tr,
+    body.dark-mode table tbody tr,
+    html.dark-mode body table tbody tr {
+      background: var(--att-row-bg) !important;
+    }
+
+    body.dark-mode .attendance-table tbody tr:hover,
+    html.dark-mode body .attendance-table tbody tr:hover,
+    body.dark-mode table tbody tr:hover,
+    html.dark-mode body table tbody tr:hover {
+      background: var(--att-row-highlight) !important;
+    }
+
+    /* Ensure progress bars are still vivid and visible */
+    body.dark-mode .progress-track,
+    html.dark-mode body .progress-track {
+      background: rgba(255, 255, 255, 0.04) !important;
+    }
+
+    body.dark-mode .progress-bar,
+    html.dark-mode body .progress-bar {
+      box-shadow: none !important;
+      opacity: 1 !important;
+    }
+
+    /* Ensure icons/svgs stay natural color (no dim filter) */
+    body.dark-mode img,
+    html.dark-mode body img,
+    body.dark-mode svg,
+    html.dark-mode body svg {
+      filter: none !important;
+      opacity: 1 !important;
+    }
+
+    /* Hide any translucent overlay/pseudo-element that washes out content in dark mode */
+    body.dark-mode .attendance-card::before,
+    html.dark-mode body .attendance-card::before,
+    body.dark-mode .attendance-card::after,
+    html.dark-mode body .attendance-card::after {
+      display: none !important;
+    }
+
+    /* Last-resort wildcard */
+    body.dark-mode [class*="attend"] [class*="table"],
+    html.dark-mode body [class*="attend"] [class*="table"] {
+      color: var(--att-text-normal) !important;
+    }
+  </style>
+  <script>
+    // Detect dark mode from parent window or postMessage
+    let darkMode = false;
+
+    function applyDarkMode(isDark) {
+      darkMode = isDark;
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
+      } else {
+        // Explicitly remove dark mode classes
+        document.body.classList.remove('dark-mode');
+        document.documentElement.classList.remove('dark-mode');
+        // Force a reflow to ensure styles are updated
+        document.body.offsetHeight;
+      }
+    }
+
+    function checkDarkMode() {
+      try {
+        const parentBody = window.parent.document.body;
+        if (parentBody) {
+          // Explicitly check if parent has dark-mode class
+          if (parentBody.classList.contains('dark-mode')) {
+            applyDarkMode(true);
+          } else {
+            // Parent is in light mode, explicitly set light mode
+            applyDarkMode(false);
+          }
+          return;
+        }
+      } catch (e) {
+        // Cross-origin error, will use postMessage instead
+      }
+
+      // Only use system preference if we can't access parent (shouldn't happen in same origin)
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      applyDarkMode(prefersDark);
+    }
+
+    // Listen for postMessage from parent
+    window.addEventListener('message', function (event) {
+      if (event.data && typeof event.data.darkMode === 'boolean') {
+        applyDarkMode(event.data.darkMode);
+      }
+    });
+
+    // Initialize - start with light mode (no dark-mode class)
+    applyDarkMode(false);
+
+    // Add attendance-card class to body for styling hooks
+    document.body.classList.add('attendance-card');
+
+    // Check on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        checkDarkMode();
+        // Check again after a short delay to ensure parent is ready
+        setTimeout(checkDarkMode, 100);
+      });
+    } else {
+      checkDarkMode();
+      setTimeout(checkDarkMode, 100);
+    }
+
+    // Check periodically for changes
+    setInterval(checkDarkMode, 500);
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,1223 @@
+/* =========================================================
+   GLOBAL DARK MODE OVERRIDES
+   ========================================================= */
+
+/* 1. Global Variables */
+body.dark,
+.dark-mode {
+    --text-bright: #F5F8FF;
+    /* primary bright white text (headings) */
+    --text-normal: #DDE6F3;
+    /* normal text (paragraphs, table text, items) */
+    --text-muted: #A8B7CC;
+    /* secondary text (meta info, dates, labels) */
+
+    /* Structural variables for Assignments Card */
+    --assign-card-bg: #111c44;
+    --assign-row-bg: #1b254b;
+    --assign-border: rgba(255, 255, 255, 0.05);
+    --assign-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Global Text Color Application */
+/* Apply to ALL elements in dark mode */
+body.dark *,
+.dark-mode * {
+    color: var(--text-normal) !important;
+}
+
+/* 3. Brighter Headings */
+body.dark h1,
+.dark-mode h1,
+body.dark h2,
+.dark-mode h2,
+body.dark h3,
+.dark-mode h3,
+body.dark h4,
+.dark-mode h4,
+body.dark h5,
+.dark-mode h5,
+body.dark h6,
+.dark-mode h6,
+body.dark .MuiTypography-h1,
+.dark-mode .MuiTypography-h1,
+body.dark .MuiTypography-h2,
+.dark-mode .MuiTypography-h2,
+body.dark .MuiTypography-h3,
+.dark-mode .MuiTypography-h3,
+body.dark .MuiTypography-h4,
+.dark-mode .MuiTypography-h4,
+body.dark .MuiTypography-h5,
+.dark-mode .MuiTypography-h5,
+body.dark .MuiTypography-h6,
+.dark-mode .MuiTypography-h6 {
+    color: var(--text-bright) !important;
+}
+
+/* 4. Muted Text */
+body.dark .muted,
+.dark-mode .muted,
+body.dark .meta,
+.dark-mode .meta,
+body.dark .subtitle,
+.dark-mode .subtitle,
+body.dark .MuiTypography-caption,
+.dark-mode .MuiTypography-caption,
+body.dark .MuiTypography-subtitle1,
+.dark-mode .MuiTypography-subtitle1,
+body.dark .MuiTypography-subtitle2,
+.dark-mode .MuiTypography-subtitle2 {
+    color: var(--text-muted) !important;
+}
+
+/* 5. Card & Section Text */
+body.dark .card *,
+.dark-mode .card *,
+body.dark .section *,
+.dark-mode .section *,
+body.dark .MuiCard-root *,
+.dark-mode .MuiCard-root * {
+    color: var(--text-normal) !important;
+}
+
+/* 6. Table Headings & Labels */
+body.dark th,
+.dark-mode th,
+body.dark .label,
+.dark-mode .label,
+body.dark .MuiTableCell-head,
+.dark-mode .MuiTableCell-head {
+    color: var(--text-bright) !important;
+}
+
+/* 7. Preserve Icons */
+body.dark svg,
+body.dark img,
+.dark-mode svg,
+.dark-mode img,
+body.dark .material-icons,
+.dark-mode .material-icons,
+body.dark .material-icons-round,
+.dark-mode .material-icons-round {
+    filter: none !important;
+    /* Note: Font icons will inherit text color, which is usually desired in dark mode.
+     Images and SVGs will remain unfiltered. */
+}
+
+/* =========================================================
+   COMPONENT SPECIFIC OVERRIDES (Assignments, Announcements)
+   ========================================================= */
+
+/* Assignments Card Styling (Structural) */
+body.dark .assignments-card.MuiCard-root,
+.dark-mode .assignments-card.MuiCard-root {
+    background-color: var(--assign-card-bg) !important;
+    box-shadow: var(--assign-shadow) !important;
+    border: 1px solid var(--assign-border) !important;
+}
+
+/* Table Transparency & Row Styling */
+body.dark .assignments-card .MuiTableContainer-root,
+.dark-mode .assignments-card .MuiTableContainer-root,
+body.dark .assignments-card table,
+.dark-mode .assignments-card table,
+body.dark .assignments-card tbody,
+.dark-mode .assignments-card tbody {
+    background-color: transparent !important;
+}
+
+body.dark .assignments-card table,
+.dark-mode .assignments-card table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+body.dark .assignments-card tbody tr,
+.dark-mode .assignments-card tbody tr {
+    background-color: var(--assign-row-bg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+body.dark .assignments-card tbody tr:hover,
+.dark-mode .assignments-card tbody tr:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background-color: #24305e !important;
+}
+
+body.dark .assignments-card td,
+.dark-mode .assignments-card td {
+    border-bottom: none !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+body.dark .assignments-card td:first-child,
+.dark-mode .assignments-card td:first-child {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+body.dark .assignments-card td:last-child,
+.dark-mode .assignments-card td:last-child {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+/* Progress Bars */
+body.dark .assignments-card .MuiLinearProgress-root,
+.dark-mode .assignments-card .MuiLinearProgress-root {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Scrollbar Hiding (Global & Specific) */
+body.dark .table-scroll,
+.dark-mode .table-scroll,
+body.dark .announcements__list-wrapper,
+.dark-mode .announcements__list-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-height: 450px;
+}
+
+body.dark .table-scroll::-webkit-scrollbar,
+.dark-mode .table-scroll::-webkit-scrollbar,
+/* =========================================================
+   GLOBAL DARK MODE OVERRIDES
+   ========================================================= */
+
+/* 1. Global Variables */
+body.dark,
+.dark-mode {
+    --text-bright: #F5F8FF;
+    /* primary bright white text (headings) */
+    --text-normal: #DDE6F3;
+    /* normal text (paragraphs, table text, items) */
+    --text-muted: #A8B7CC;
+    /* secondary text (meta info, dates, labels) */
+
+    /* Structural variables for Assignments Card */
+    --assign-card-bg: #111c44;
+    --assign-row-bg: #1b254b;
+    --assign-border: rgba(255, 255, 255, 0.05);
+    --assign-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Global Text Color Application */
+/* Apply to ALL elements in dark mode */
+body.dark *,
+.dark-mode * {
+    color: var(--text-normal) !important;
+}
+
+/* 3. Brighter Headings */
+body.dark h1,
+.dark-mode h1,
+body.dark h2,
+.dark-mode h2,
+body.dark h3,
+.dark-mode h3,
+body.dark h4,
+.dark-mode h4,
+body.dark h5,
+.dark-mode h5,
+body.dark h6,
+.dark-mode h6,
+body.dark .MuiTypography-h1,
+.dark-mode .MuiTypography-h1,
+body.dark .MuiTypography-h2,
+.dark-mode .MuiTypography-h2,
+body.dark .MuiTypography-h3,
+.dark-mode .MuiTypography-h3,
+body.dark .MuiTypography-h4,
+.dark-mode .MuiTypography-h4,
+body.dark .MuiTypography-h5,
+.dark-mode .MuiTypography-h5,
+body.dark .MuiTypography-h6,
+.dark-mode .MuiTypography-h6 {
+    color: var(--text-bright) !important;
+}
+
+/* 4. Muted Text */
+body.dark .muted,
+.dark-mode .muted,
+body.dark .meta,
+.dark-mode .meta,
+body.dark .subtitle,
+.dark-mode .subtitle,
+body.dark .MuiTypography-caption,
+.dark-mode .MuiTypography-caption,
+body.dark .MuiTypography-subtitle1,
+.dark-mode .MuiTypography-subtitle1,
+body.dark .MuiTypography-subtitle2,
+.dark-mode .MuiTypography-subtitle2 {
+    color: var(--text-muted) !important;
+}
+
+/* 5. Card & Section Text */
+body.dark .card *,
+.dark-mode .card *,
+body.dark .section *,
+.dark-mode .section *,
+body.dark .MuiCard-root *,
+.dark-mode .MuiCard-root * {
+    color: var(--text-normal) !important;
+}
+
+/* 6. Table Headings & Labels */
+body.dark th,
+.dark-mode th,
+body.dark .label,
+.dark-mode .label,
+body.dark .MuiTableCell-head,
+.dark-mode .MuiTableCell-head {
+    color: var(--text-bright) !important;
+}
+
+/* 7. Preserve Icons */
+body.dark svg,
+body.dark img,
+.dark-mode svg,
+.dark-mode img,
+body.dark .material-icons,
+.dark-mode .material-icons,
+body.dark .material-icons-round,
+.dark-mode .material-icons-round {
+    filter: none !important;
+    /* Note: Font icons will inherit text color, which is usually desired in dark mode.
+     Images and SVGs will remain unfiltered. */
+}
+
+/* =========================================================
+   COMPONENT SPECIFIC OVERRIDES (Assignments, Announcements)
+   ========================================================= */
+
+/* Assignments Card Styling (Structural) */
+body.dark .assignments-card.MuiCard-root,
+.dark-mode .assignments-card.MuiCard-root {
+    background-color: var(--assign-card-bg) !important;
+    box-shadow: var(--assign-shadow) !important;
+    border: 1px solid var(--assign-border) !important;
+}
+
+/* Table Transparency & Row Styling */
+body.dark .assignments-card .MuiTableContainer-root,
+.dark-mode .assignments-card .MuiTableContainer-root,
+body.dark .assignments-card table,
+.dark-mode .assignments-card table,
+body.dark .assignments-card tbody,
+.dark-mode .assignments-card tbody {
+    background-color: transparent !important;
+}
+
+body.dark .assignments-card table,
+.dark-mode .assignments-card table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+body.dark .assignments-card tbody tr,
+.dark-mode .assignments-card tbody tr {
+    background-color: var(--assign-row-bg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+body.dark .assignments-card tbody tr:hover,
+.dark-mode .assignments-card tbody tr:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background-color: #24305e !important;
+}
+
+body.dark .assignments-card td,
+.dark-mode .assignments-card td {
+    border-bottom: none !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+body.dark .assignments-card td:first-child,
+.dark-mode .assignments-card td:first-child {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+body.dark .assignments-card td:last-child,
+.dark-mode .assignments-card td:last-child {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+/* Progress Bars */
+body.dark .assignments-card .MuiLinearProgress-root,
+.dark-mode .assignments-card .MuiLinearProgress-root {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Scrollbar Hiding (Global & Specific) */
+body.dark .table-scroll,
+.dark-mode .table-scroll,
+body.dark .announcements__list-wrapper,
+.dark-mode .announcements__list-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-height: 450px;
+}
+
+body.dark .table-scroll::-webkit-scrollbar,
+.dark-mode .table-scroll::-webkit-scrollbar,
+body.dark .announcements__list-wrapper::-webkit-scrollbar,
+.dark-mode .announcements__list-wrapper::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+body.dark .table-scroll:focus,
+.dark-mode .table-scroll:focus,
+body.dark .announcements__list-wrapper:focus,
+/* =========================================================
+   GLOBAL DARK MODE OVERRIDES
+   ========================================================= */
+
+/* 1. Global Variables */
+body.dark,
+.dark-mode {
+    --text-bright: #F5F8FF;
+    /* primary bright white text (headings) */
+    --text-normal: #DDE6F3;
+    /* normal text (paragraphs, table text, items) */
+    --text-muted: #A8B7CC;
+    /* secondary text (meta info, dates, labels) */
+
+    /* Structural variables for Assignments Card */
+    --assign-card-bg: #111c44;
+    --assign-row-bg: #1b254b;
+    --assign-border: rgba(255, 255, 255, 0.05);
+    --assign-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Global Text Color Application */
+/* Apply to ALL elements in dark mode */
+body.dark *,
+.dark-mode * {
+    color: var(--text-normal) !important;
+}
+
+/* 3. Brighter Headings */
+body.dark h1,
+.dark-mode h1,
+body.dark h2,
+.dark-mode h2,
+body.dark h3,
+.dark-mode h3,
+body.dark h4,
+.dark-mode h4,
+body.dark h5,
+.dark-mode h5,
+body.dark h6,
+.dark-mode h6,
+body.dark .MuiTypography-h1,
+.dark-mode .MuiTypography-h1,
+body.dark .MuiTypography-h2,
+.dark-mode .MuiTypography-h2,
+body.dark .MuiTypography-h3,
+.dark-mode .MuiTypography-h3,
+body.dark .MuiTypography-h4,
+.dark-mode .MuiTypography-h4,
+body.dark .MuiTypography-h5,
+.dark-mode .MuiTypography-h5,
+body.dark .MuiTypography-h6,
+.dark-mode .MuiTypography-h6 {
+    color: var(--text-bright) !important;
+}
+
+/* 4. Muted Text */
+body.dark .muted,
+.dark-mode .muted,
+body.dark .meta,
+.dark-mode .meta,
+body.dark .subtitle,
+.dark-mode .subtitle,
+body.dark .MuiTypography-caption,
+.dark-mode .MuiTypography-caption,
+body.dark .MuiTypography-subtitle1,
+.dark-mode .MuiTypography-subtitle1,
+body.dark .MuiTypography-subtitle2,
+.dark-mode .MuiTypography-subtitle2 {
+    color: var(--text-muted) !important;
+}
+
+/* 5. Card & Section Text */
+body.dark .card *,
+.dark-mode .card *,
+body.dark .section *,
+.dark-mode .section *,
+body.dark .MuiCard-root *,
+.dark-mode .MuiCard-root * {
+    color: var(--text-normal) !important;
+}
+
+/* 6. Table Headings & Labels */
+body.dark th,
+.dark-mode th,
+body.dark .label,
+.dark-mode .label,
+body.dark .MuiTableCell-head,
+.dark-mode .MuiTableCell-head {
+    color: var(--text-bright) !important;
+}
+
+/* 7. Preserve Icons */
+body.dark svg,
+body.dark img,
+.dark-mode svg,
+.dark-mode img,
+body.dark .material-icons,
+.dark-mode .material-icons,
+body.dark .material-icons-round,
+.dark-mode .material-icons-round {
+    filter: none !important;
+    /* Note: Font icons will inherit text color, which is usually desired in dark mode.
+     Images and SVGs will remain unfiltered. */
+}
+
+/* =========================================================
+   COMPONENT SPECIFIC OVERRIDES (Assignments, Announcements)
+   ========================================================= */
+
+/* Assignments Card Styling (Structural) */
+body.dark .assignments-card.MuiCard-root,
+.dark-mode .assignments-card.MuiCard-root {
+    background-color: var(--assign-card-bg) !important;
+    box-shadow: var(--assign-shadow) !important;
+    border: 1px solid var(--assign-border) !important;
+}
+
+/* Table Transparency & Row Styling */
+body.dark .assignments-card .MuiTableContainer-root,
+.dark-mode .assignments-card .MuiTableContainer-root,
+body.dark .assignments-card table,
+.dark-mode .assignments-card table,
+body.dark .assignments-card tbody,
+.dark-mode .assignments-card tbody {
+    background-color: transparent !important;
+}
+
+body.dark .assignments-card table,
+.dark-mode .assignments-card table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+body.dark .assignments-card tbody tr,
+.dark-mode .assignments-card tbody tr {
+    background-color: var(--assign-row-bg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+body.dark .assignments-card tbody tr:hover,
+.dark-mode .assignments-card tbody tr:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background-color: #24305e !important;
+}
+
+body.dark .assignments-card td,
+.dark-mode .assignments-card td {
+    border-bottom: none !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+body.dark .assignments-card td:first-child,
+.dark-mode .assignments-card td:first-child {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+body.dark .assignments-card td:last-child,
+.dark-mode .assignments-card td:last-child {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+/* Progress Bars */
+body.dark .assignments-card .MuiLinearProgress-root,
+.dark-mode .assignments-card .MuiLinearProgress-root {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Scrollbar Hiding (Global & Specific) */
+body.dark .table-scroll,
+.dark-mode .table-scroll,
+body.dark .announcements__list-wrapper,
+.dark-mode .announcements__list-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-height: 450px;
+}
+
+body.dark .table-scroll::-webkit-scrollbar,
+.dark-mode .table-scroll::-webkit-scrollbar,
+body.dark .announcements__list-wrapper::-webkit-scrollbar,
+.dark-mode .announcements__list-wrapper::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+body.dark .table-scroll:focus,
+.dark-mode .table-scroll:focus,
+body.dark .announcements__list-wrapper:focus,
+.dark-mode .announcements__list-wrapper:focus {
+    outline: 2px solid rgba(227, 240, 255, 0.06);
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   FEE BREAKDOWN DARK MODE CORRECTIONS
+   ========================================================= */
+
+/* ===== Fee Breakdown — Dark Mode Fix ===== */
+body.dark .fee-breakdown-card,
+.dark-mode .fee-breakdown-card {
+    position: relative;
+    /* outer card keeps dark background — don't change that */
+}
+
+/* White inner table panel */
+body.dark .fee-breakdown-card .fee-table-wrapper,
+.dark-mode .fee-breakdown-card .fee-table-wrapper {
+    background: #ffffff !important;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Table itself */
+body.dark .fee-breakdown-card table,
+.dark-mode .fee-breakdown-card table {
+    width: 100%;
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    /* strong readable dark text */
+    border-collapse: collapse;
+}
+
+/* Table header */
+body.dark .fee-breakdown-card table thead th,
+.dark-mode .fee-breakdown-card table thead th {
+    color: #374151 !important;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.06) !important;
+    background: transparent !important;
+}
+
+/* Table rows */
+body.dark .fee-breakdown-card table tbody tr,
+.dark-mode .fee-breakdown-card table tbody tr {
+    border-bottom: 1px solid rgba(31, 41, 55, 0.05) !important;
+    background: transparent !important;
+}
+
+/* Table data cells */
+body.dark .fee-breakdown-card table td,
+.dark-mode .fee-breakdown-card table td {
+    padding: 16px 20px !important;
+    color: #1f2937 !important;
+    /* dark, readable */
+    border-bottom: none !important;
+}
+
+/* Status badges (Paid / Pending) */
+body.dark .fee-breakdown-card .badge,
+.dark-mode .fee-breakdown-card .badge,
+body.dark .fee-breakdown-card .MuiBadge-badge,
+.dark-mode .fee-breakdown-card .MuiBadge-badge,
+body.dark .fee-breakdown-card .MuiChip-root,
+.dark-mode .fee-breakdown-card .MuiChip-root {
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+/* Paid — green */
+body.dark .fee-breakdown-card .badge--paid,
+.dark-mode .fee-breakdown-card .badge--paid,
+body.dark .fee-breakdown-card .MuiChip-colorSuccess,
+.dark-mode .fee-breakdown-card .MuiChip-colorSuccess {
+    background: #28c76f !important;
+}
+
+/* Pending — red */
+body.dark .fee-breakdown-card .badge--pending,
+.dark-mode .fee-breakdown-card .badge--pending,
+body.dark .fee-breakdown-card .MuiChip-colorError,
+.dark-mode .fee-breakdown-card .MuiChip-colorError {
+    background: #ff4d4f !important;
+}
+
+/* Icons stay normal */
+body.dark .fee-breakdown-card img,
+.dark-mode .fee-breakdown-card img,
+body.dark .fee-breakdown-card svg,
+body.dark .material-icons,
+.dark-mode .material-icons,
+body.dark .material-icons-round,
+.dark-mode .material-icons-round {
+    filter: none !important;
+    /* Note: Font icons will inherit text color, which is usually desired in dark mode.
+     Images and SVGs will remain unfiltered. */
+}
+
+/* =========================================================
+   COMPONENT SPECIFIC OVERRIDES (Assignments, Announcements)
+   ========================================================= */
+
+/* Assignments Card Styling (Structural) */
+body.dark .assignments-card.MuiCard-root,
+.dark-mode .assignments-card.MuiCard-root {
+    background-color: var(--assign-card-bg) !important;
+    box-shadow: var(--assign-shadow) !important;
+    border: 1px solid var(--assign-border) !important;
+}
+
+/* Table Transparency & Row Styling */
+body.dark .assignments-card .MuiTableContainer-root,
+.dark-mode .assignments-card .MuiTableContainer-root,
+body.dark .assignments-card table,
+.dark-mode .assignments-card table,
+body.dark .assignments-card tbody,
+.dark-mode .assignments-card tbody {
+    background-color: transparent !important;
+}
+
+body.dark .assignments-card table,
+.dark-mode .assignments-card table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+body.dark .assignments-card tbody tr,
+.dark-mode .assignments-card tbody tr {
+    background-color: var(--assign-row-bg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+body.dark .assignments-card tbody tr:hover,
+.dark-mode .assignments-card tbody tr:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background-color: #24305e !important;
+}
+
+body.dark .assignments-card td,
+.dark-mode .assignments-card td {
+    border-bottom: none !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+body.dark .assignments-card td:first-child,
+.dark-mode .assignments-card td:first-child {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+body.dark .assignments-card td:last-child,
+.dark-mode .assignments-card td:last-child {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+/* Progress Bars */
+body.dark .assignments-card .MuiLinearProgress-root,
+.dark-mode .assignments-card .MuiLinearProgress-root {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Scrollbar Hiding (Global & Specific) */
+body.dark .table-scroll,
+.dark-mode .table-scroll,
+body.dark .announcements__list-wrapper,
+.dark-mode .announcements__list-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-height: 450px;
+}
+
+body.dark .table-scroll::-webkit-scrollbar,
+.dark-mode .table-scroll::-webkit-scrollbar,
+body.dark .announcements__list-wrapper::-webkit-scrollbar,
+.dark-mode .announcements__list-wrapper::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+body.dark .table-scroll:focus,
+.dark-mode .table-scroll:focus,
+body.dark .announcements__list-wrapper:focus,
+.dark-mode .announcements__list-wrapper:focus {
+    outline: 2px solid rgba(227, 240, 255, 0.06);
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   FEE BREAKDOWN DARK MODE CORRECTIONS
+   ========================================================= */
+
+/* ===== Fee Breakdown — Dark Mode Fix ===== */
+body.dark .fee-breakdown-card,
+.dark-mode .fee-breakdown-card {
+    position: relative;
+    /* outer card keeps dark background — don't change that */
+}
+
+/* White inner table panel */
+body.dark .fee-breakdown-card .fee-table-wrapper,
+.dark-mode .fee-breakdown-card .fee-table-wrapper {
+    background: #ffffff !important;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Table itself */
+body.dark .fee-breakdown-card table,
+.dark-mode .fee-breakdown-card table {
+    width: 100%;
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    /* strong readable dark text */
+    border-collapse: collapse;
+}
+
+/* Table header */
+body.dark .fee-breakdown-card table thead th,
+.dark-mode .fee-breakdown-card table thead th {
+    color: #374151 !important;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.06) !important;
+    background: transparent !important;
+}
+
+/* Table rows */
+body.dark .fee-breakdown-card table tbody tr,
+.dark-mode .fee-breakdown-card table tbody tr {
+    border-bottom: 1px solid rgba(31, 41, 55, 0.05) !important;
+    background: transparent !important;
+}
+
+/* Table data cells */
+body.dark .fee-breakdown-card table td,
+.dark-mode .fee-breakdown-card table td {
+    padding: 16px 20px !important;
+    color: #1f2937 !important;
+    /* dark, readable */
+    border-bottom: none !important;
+}
+
+/* Status badges (Paid / Pending) */
+body.dark .fee-breakdown-card .badge,
+.dark-mode .fee-breakdown-card .badge,
+body.dark .fee-breakdown-card .MuiBadge-badge,
+.dark-mode .fee-breakdown-card .MuiBadge-badge,
+body.dark .fee-breakdown-card .MuiChip-root,
+.dark-mode .fee-breakdown-card .MuiChip-root {
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+/* Paid — green */
+body.dark .fee-breakdown-card .badge--paid,
+.dark-mode .fee-breakdown-card .badge--paid,
+body.dark .fee-breakdown-card .MuiChip-colorSuccess,
+.dark-mode .fee-breakdown-card .MuiChip-colorSuccess {
+    background: #28c76f !important;
+}
+
+/* Pending — red */
+body.dark .fee-breakdown-card .badge--pending,
+.dark-mode .fee-breakdown-card .badge--pending,
+body.dark .fee-breakdown-card .MuiChip-colorError,
+.dark-mode .fee-breakdown-card .MuiChip-colorError {
+    background: #ff4d4f !important;
+}
+
+/* Icons stay normal */
+body.dark .fee-breakdown-card img,
+.dark-mode .fee-breakdown-card img,
+body.dark .fee-breakdown-card svg,
+.dark-mode .fee-breakdown-card svg {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Remove ANY overlay that is fading the table */
+body.dark .fee-breakdown-card::before,
+body.dark .fee-breakdown-card::after,
+.dark-mode .fee-breakdown-card::before,
+.dark-mode .fee-breakdown-card::after {
+    display: none !important;
+}
+
+/* =========================================================
+   ATTENDANCE DARK MODE READABILITY FIXES
+   ========================================================= */
+
+/* Scope both common dark roots */
+body.dark,
+.dark-mode {
+    --att-text-bright: #F5F8FF;
+    /* headings / primary */
+    --att-text-normal: #E0E9F6;
+    /* regular cell text */
+    --att-text-muted: #A7B6C8;
+    /* secondary/meta */
+    --att-row-bg: rgba(255, 255, 255, 0.02);
+    --att-row-highlight: rgba(255, 255, 255, 0.04);
+}
+
+/* Stronger text color for attendance card header */
+body.dark .attendance-card .section-title,
+.dark-mode .attendance-card .section-title,
+body.dark .attendance .section-title,
+.dark-mode .attendance .section-title {
+    color: var(--att-text-bright) !important;
+    opacity: 0.98 !important;
+}
+
+/* Apply readable text for all table text inside attendance */
+body.dark .attendance-card,
+.dark-mode .attendance-card,
+body.dark .attendance,
+.dark-mode .attendance,
+body.dark .attendance-table,
+.dark-mode .attendance-table {
+    color: var(--att-text-normal) !important;
+}
+
+/* Table headings brighter */
+body.dark .attendance-table thead th,
+.dark-mode .attendance-table thead th {
+    color: var(--att-text-bright) !important;
+    font-weight: 700 !important;
+    opacity: 0.98 !important;
+}
+
+/* Table body cells */
+body.dark .attendance-table tbody td,
+.dark-mode .attendance-table tbody td {
+    color: var(--att-text-normal) !important;
+    padding: 14px 18px !important;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Muted/meta text (dates, small labels) */
+body.dark .attendance-table .muted,
+.dark-mode .attendance-table .muted,
+body.dark .attendance .muted,
+.dark-mode .attendance .muted {
+    color: var(--att-text-muted) !important;
+}
+
+/* Row background & highlighted row */
+body.dark .attendance-table tbody tr,
+.dark-mode .attendance-table tbody tr {
+    background: var(--att-row-bg) !important;
+}
+
+body.dark .attendance-table tbody tr.is-selected,
+.dark-mode .attendance-table tbody tr.is-selected,
+body.dark .attendance-table tbody tr:hover,
+.dark-mode .attendance-table tbody tr:hover {
+    background: var(--att-row-highlight) !important;
+}
+
+/* Ensure progress bars are still vivid and visible */
+body.dark .attendance-table .progress-track {
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+body.dark .attendance-table .progress-bar {
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+/* Ensure icons/svgs stay natural color (no dim filter) */
+body.dark .attendance-table img,
+.dark-mode .attendance-table img,
+body.dark .attendance-table svg,
+outline-offset: 4px;
+}
+
+/* =========================================================
+   FEE BREAKDOWN DARK MODE CORRECTIONS
+   ========================================================= */
+
+/* ===== Fee Breakdown — Dark Mode Fix ===== */
+body.dark .fee-breakdown-card,
+.dark-mode .fee-breakdown-card {
+    position: relative;
+    /* outer card keeps dark background — don't change that */
+}
+
+/* White inner table panel */
+body.dark .fee-breakdown-card .fee-table-wrapper,
+.dark-mode .fee-breakdown-card .fee-table-wrapper {
+    background: #ffffff !important;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Table itself */
+body.dark .fee-breakdown-card table,
+.dark-mode .fee-breakdown-card table {
+    width: 100%;
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    /* strong readable dark text */
+    border-collapse: collapse;
+}
+
+/* Table header */
+body.dark .fee-breakdown-card table thead th,
+.dark-mode .fee-breakdown-card table thead th {
+    color: #374151 !important;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.06) !important;
+    background: transparent !important;
+}
+
+/* Table rows */
+body.dark .fee-breakdown-card table tbody tr,
+.dark-mode .fee-breakdown-card table tbody tr {
+    border-bottom: 1px solid rgba(31, 41, 55, 0.05) !important;
+    background: transparent !important;
+}
+
+/* Table data cells */
+body.dark .fee-breakdown-card table td,
+.dark-mode .fee-breakdown-card table td {
+    padding: 16px 20px !important;
+    color: #1f2937 !important;
+    /* dark, readable */
+    border-bottom: none !important;
+}
+
+/* Status badges (Paid / Pending) */
+body.dark .fee-breakdown-card .badge,
+.dark-mode .fee-breakdown-card .badge,
+body.dark .fee-breakdown-card .MuiBadge-badge,
+.dark-mode .fee-breakdown-card .MuiBadge-badge,
+body.dark .fee-breakdown-card .MuiChip-root,
+.dark-mode .fee-breakdown-card .MuiChip-root {
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+}
+
+/* Paid — green */
+body.dark .fee-breakdown-card .badge--paid,
+.dark-mode .fee-breakdown-card .badge--paid,
+body.dark .fee-breakdown-card .MuiChip-colorSuccess,
+.dark-mode .fee-breakdown-card .MuiChip-colorSuccess {
+    background: #28c76f !important;
+}
+
+/* Pending — red */
+body.dark .fee-breakdown-card .badge--pending,
+.dark-mode .fee-breakdown-card .badge--pending,
+body.dark .fee-breakdown-card .MuiChip-colorError,
+.dark-mode .fee-breakdown-card .MuiChip-colorError {
+    background: #ff4d4f !important;
+}
+
+/* Icons stay normal */
+body.dark .fee-breakdown-card img,
+.dark-mode .fee-breakdown-card img,
+body.dark .fee-breakdown-card svg,
+.dark-mode .fee-breakdown-card svg {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Remove ANY overlay that is fading the table */
+body.dark .fee-breakdown-card::before,
+body.dark .fee-breakdown-card::after,
+.dark-mode .fee-breakdown-card::before,
+.dark-mode .fee-breakdown-card::after {
+    display: none !important;
+}
+
+/* =========================================================
+   ATTENDANCE DARK MODE READABILITY FIXES
+   ========================================================= */
+
+/* Scope both common dark roots */
+body.dark,
+.dark-mode {
+    --att-text-bright: #F5F8FF;
+    /* headings / primary */
+    --att-text-normal: #E0E9F6;
+    /* regular cell text */
+    --att-text-muted: #A7B6C8;
+    /* secondary/meta */
+    --att-row-bg: rgba(255, 255, 255, 0.02);
+    --att-row-highlight: rgba(255, 255, 255, 0.04);
+}
+
+/* Stronger text color for attendance card header */
+body.dark .attendance-card .section-title,
+.dark-mode .attendance-card .section-title,
+body.dark .attendance .section-title,
+.dark-mode .attendance .section-title {
+    color: var(--att-text-bright) !important;
+    opacity: 0.98 !important;
+}
+
+/* Apply readable text for all table text inside attendance */
+body.dark .attendance-card,
+.dark-mode .attendance-card,
+body.dark .attendance,
+.dark-mode .attendance,
+body.dark .attendance-table,
+.dark-mode .attendance-table {
+    color: var(--att-text-normal) !important;
+}
+
+/* Table headings brighter */
+body.dark .attendance-table thead th,
+.dark-mode .attendance-table thead th {
+    color: var(--att-text-bright) !important;
+    font-weight: 700 !important;
+    opacity: 0.98 !important;
+}
+
+/* Table body cells */
+body.dark .attendance-table tbody td,
+.dark-mode .attendance-table tbody td {
+    color: var(--att-text-normal) !important;
+    padding: 14px 18px !important;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Muted/meta text (dates, small labels) */
+body.dark .attendance-table .muted,
+.dark-mode .attendance-table .muted,
+body.dark .attendance .muted,
+.dark-mode .attendance .muted {
+    color: var(--att-text-muted) !important;
+}
+
+/* Row background & highlighted row */
+body.dark .attendance-table tbody tr,
+.dark-mode .attendance-table tbody tr {
+    background: var(--att-row-bg) !important;
+}
+
+body.dark .attendance-table tbody tr.is-selected,
+.dark-mode .attendance-table tbody tr.is-selected,
+body.dark .attendance-table tbody tr:hover,
+.dark-mode .attendance-table tbody tr:hover {
+    background: var(--att-row-highlight) !important;
+}
+
+/* Ensure progress bars are still vivid and visible */
+body.dark .attendance-table .progress-track {
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+body.dark .attendance-table .progress-bar {
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+/* Ensure icons/svgs stay natural color (no dim filter) */
+body.dark .attendance-table img,
+.dark-mode .attendance-table img,
+body.dark .attendance-table svg,
+.dark-mode .attendance-table svg {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Hide any translucent overlay/pseudo-element that washes out content in dark mode */
+body.dark .attendance-card::before,
+.dark-mode .attendance-card::before,
+body.dark .attendance-card::after,
+.dark-mode .attendance-card::after,
+body.dark .attendance::before,
+.dark-mode .attendance::before,
+body.dark .attendance::after,
+.dark-mode .attendance::after {
+    display: none !important;
+}
+
+/* Force focus outline for keyboard users on the scroll container */
+body.dark .attendance .table-scroll:focus,
+.dark-mode .attendance .table-scroll:focus {
+    outline: 2px solid rgba(230, 244, 255, 0.06);
+    outline-offset: 4px;
+}
+
+/* Last-resort wildcard if class names differ — append at very end if needed */
+body.dark [class*="attend"] [class*="table"],
+.dark-mode [class*="attend"] [class*="table"] {
+    color: var(--att-text-normal) !important;
+}
+
+/* =========================================================
+   SKILLS ASSESSMENT CHART VISIBILITY FIX
+   ========================================================= */
+
+/* Chart container */
+.skills-assessment .chart-wrapper {
+    /* Height handled by JSX to match Performance card */
+    position: relative !important;
+    z-index: 1 !important;
+    background: transparent !important;
+    overflow: visible !important;
+}
+
+/* Ensure SVG / canvas visible */
+.skills-assessment canvas,
+.skills-assessment svg,
+.skills-assessment .recharts-wrapper {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    filter: none !important;
+    z-index: 2 !important;
+}
+
+/* Disable any overlay/dimming */
+.skills-assessment::before,
+.skills-assessment::after,
+.skills-assessment .overlay {
+    display: none !important;
+}

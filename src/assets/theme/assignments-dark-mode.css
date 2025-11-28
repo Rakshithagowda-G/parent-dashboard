@@ -1,0 +1,200 @@
+/* Dark Mode Variables */
+body.dark-mode {
+    --assign-card-bg: #111c44;
+    /* Deep Navy Background */
+    --assign-row-bg: #1b254b;
+    /* Slightly lighter navy for rows */
+    --assign-text-main: #ffffff;
+    --assign-text-muted: #a3aed0;
+    --assign-border: rgba(255, 255, 255, 0.05);
+    --assign-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* 1. Card Container Overrides */
+body.dark-mode .assignments-card.MuiCard-root {
+    background-color: var(--assign-card-bg) !important;
+    box-shadow: var(--assign-shadow) !important;
+    border: 1px solid var(--assign-border) !important;
+    color: var(--assign-text-main) !important;
+}
+
+/* 2. Typography Overrides */
+/* Title */
+body.dark-mode .assignments-card h5,
+body.dark-mode .assignments-card .MuiTypography-h5 {
+    color: var(--assign-text-main) !important;
+}
+
+/* Subtitles / Stats / Captions */
+body.dark-mode .assignments-card .MuiTypography-button,
+body.dark-mode .assignments-card .MuiTypography-caption,
+body.dark-mode .assignments-card .MuiTypography-body2 {
+    color: var(--assign-text-muted) !important;
+}
+
+/* Strong text / Values / Bold text */
+body.dark-mode .assignments-card strong,
+body.dark-mode .assignments-card .MuiTypography-fontWeightBold,
+body.dark-mode .assignments-card .MuiTypography-fontWeightMedium {
+    color: var(--assign-text-main) !important;
+}
+
+/* 3. Table Overrides */
+/* Headers */
+body.dark-mode .assignments-card th {
+    color: var(--assign-text-muted) !important;
+    border-bottom: 1px solid var(--assign-border) !important;
+    opacity: 1 !important;
+}
+
+/* Ensure table container and table itself are transparent */
+body.dark-mode .assignments-card .MuiTableContainer-root,
+body.dark-mode .assignments-card table,
+body.dark-mode .assignments-card tbody {
+    background-color: transparent !important;
+}
+
+/* Rows as "Subtle Dark Panels" */
+/* Use border-collapse: separate to allow spacing between rows */
+body.dark-mode .assignments-card table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+    /* Spacing between rows */
+}
+
+/* Row Styling */
+body.dark-mode .assignments-card tbody tr {
+    background-color: var(--assign-row-bg) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* Row Hover Effect */
+body.dark-mode .assignments-card tbody tr:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background-color: #24305e !important;
+    /* Slightly lighter on hover */
+}
+
+/* Cells */
+body.dark-mode .assignments-card td {
+    border-bottom: none !important;
+    /* Remove standard borders */
+    color: var(--assign-text-main) !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+/* Rounded corners for the row "card" */
+body.dark-mode .assignments-card td:first-child {
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+}
+
+body.dark-mode .assignments-card td:last-child {
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+/* 4. Progress Bars */
+body.dark-mode .assignments-card .MuiLinearProgress-root {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 5. Icons & Images */
+body.dark-mode .assignments-card .material-icons,
+body.dark-mode .assignments-card .material-icons-round,
+body.dark-mode .assignments-card img,
+body.dark-mode .assignments-card svg {
+    color: var(--assign-text-main) !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* ---------- Brighten text & hide scrollbars in dark mode ---------- */
+
+/* Bright text overrides for Assignments + Announcements cards */
+body.dark-mode .assignments-card,
+body.dark-mode .assignments,
+body.dark-mode .announcements,
+body.dark-mode .announcements__list-wrapper {
+    --card-text-bright: #f3f8ff;
+    /* main headings / primary copy (very light) */
+    --card-text-muted: #c6d5e6;
+    /* secondary / meta text (lighter than before) */
+    --card-accent: #eaf7ff;
+    /* tiny accent for sublabels if needed */
+}
+
+/* Apply the variables to elements — force if necessary */
+body.dark-mode .assignments-card,
+body.dark-mode .assignments {
+    color: var(--card-text-bright) !important;
+}
+
+body.dark-mode .assignments-card th,
+body.dark-mode .assignments-card .MuiTypography-h5,
+body.dark-mode .assignments-card h5 {
+    color: var(--card-text-bright) !important;
+    opacity: 0.98 !important;
+}
+
+body.dark-mode .assignments-card td,
+body.dark-mode .assignments-card .MuiTypography-body2,
+body.dark-mode .assignments-card .MuiTypography-caption,
+body.dark-mode .assignments-card .MuiTypography-button {
+    color: var(--card-text-muted) !important;
+}
+
+/* Announcements text */
+body.dark-mode .announcements {
+    color: var(--card-text-bright) !important;
+}
+
+body.dark-mode .announcements h5,
+body.dark-mode .announcements .MuiTypography-h5 {
+    color: var(--card-text-bright) !important;
+    opacity: 0.98 !important;
+}
+
+body.dark-mode .announcements .MuiTypography-body2,
+body.dark-mode .announcements .MuiTypography-caption,
+body.dark-mode .announcements .MuiTypography-button {
+    color: var(--card-text-muted) !important;
+}
+
+/* --------- Hide scrollbars but keep scrolling (cross-browser) --------- */
+/* Use on scrollable wrappers: .table-scroll and .announcements__list-wrapper */
+
+/* 1) Firefox */
+body.dark-mode .table-scroll,
+body.dark-mode .announcements__list-wrapper {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+/* 2) WebKit (Chrome, Safari, Edge) — hide the track/thumb visually */
+body.dark-mode .table-scroll::-webkit-scrollbar,
+body.dark-mode .announcements__list-wrapper::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* 3) Keep overflow-y auto so scrolling still works */
+body.dark-mode .table-scroll,
+body.dark-mode .announcements__list-wrapper {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* smooth on iOS */
+    max-height: 450px;
+    /* Ensure height limit is preserved */
+}
+
+/* 4) Make sure focus outline remains for keyboard users */
+body.dark-mode .table-scroll:focus,
+body.dark-mode .announcements__list-wrapper:focus {
+    outline: 2px solid rgba(227, 240, 255, 0.06);
+    outline-offset: 4px;
+}
